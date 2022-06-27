@@ -1,0 +1,8 @@
+{
+  "name": "jupiter-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Thalison Eduardo <thalison.eduardo14@gmail.com>",
+  "license": "MIT",
+  "private": true
+}

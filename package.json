@@ -27,9 +27,20 @@
     "typescript-transform-paths": "^3.3.1"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "lint": "eslint ./src/**/*",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:unit": "yarn test --watch",
+    "test:staged": "yarn test --findRelatedTests",
+    "test:ci": "yarn test --coverage",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch node_modules --no-notify src/main/server"
   },
   "lint-staged": {
-    "src/**/*": []
+    "src/**/*": [
+      "yarn lint",
+      "yarn test:staged"
+    ]
   }
 }
